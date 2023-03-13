@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    /* cho các phần tử thể hiện nội dung luôn mặc định trong width height mà chúng có */
+}
+
+html {
+    font-size: 62.5%;
+    /* Do hầu hết các trình duyệt đều thiết lập font-size mặc định là 16px. Vì thế 62.5% = 10px = 1em. */
+}
+
+body {
+    font-size: 1.6rem;
+    /* quy đổi về 16px */
+    font-family: 'Sora', sans-serif;
+}
+
