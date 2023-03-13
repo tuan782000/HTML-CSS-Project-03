@@ -1,6 +1,9 @@
-*{
-    box-sizing: border-box;
-    /* cho các phần tử thể hiện nội dung luôn mặc định trong width height mà chúng có */
+* {
+    box-sizing: border-box; /* cho các phần tử thể hiện nội dung luôn mặc định trong width height mà chúng có */
+}
+
+:root {
+    --header-bg: #10375c; /* Đặt biến màu  */
 }
 
 html {
@@ -9,8 +12,228 @@ html {
 }
 
 body {
-    font-size: 1.6rem;
-    /* quy đổi về 16px */
-    font-family: 'Sora', sans-serif;
+    font-size: 1.6rem; /* quy đổi về 16px */
+    font-family: "Sora", sans-serif; /* style  */
 }
 
+/* Common || Phần này viết chung các css cho toàn trang */
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1170px; /* Đặt cái độ rộng chung*/
+    max-width: calc(100% - 48px);
+    /* Sau đó là lấy tổng kích thước của width - 40px để set cái width tối thiểu*/
+    /* Khi mà trình duyệt co nhỏ lại dưới 1170px thì max-width bắt đầu phát huy công dụng, giúp giữ cho hai bên 
+    lề trái lề phải đều bằng 24px */
+    /* 24px + 24px = 48px */
+    margin: 0 auto;
+    /* căn giữa */
+}
+
+.btn {
+    --height: 60px;
+
+    display: inline-block;
+    min-width: 205px;
+    height: var(--height);
+    padding: 0 20px;
+    border-radius: 99px;
+    border: 1px solid #2e80ce;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: var(--height);
+    color: #fff;
+    background: #2e80ce;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Header */
+.header {
+    min-height: 100vh;
+    /* Đặt kích thước của độ rộng header */
+    padding-top: 30px;
+    background: var(--header-bg);
+}
+
+.logo {
+    position: relative;
+    display: inline-flex;
+    font-size: 1rem;
+    /*rem là đơn vị không tuyệt đối nó phụ thuộc vào font-size đã gán bên trên html. Vì ở trên đã gán font-size 62.5% chính vì vậy 1 rem ở đây bằng 10px */
+}
+
+.logo__circle::before,
+.logo__circle::after {
+    content: "";
+    display: inline-block;
+    border-radius: 50%; /* Đây là nơi chứa các css chung cho các hình tròn thuộc logo */
+}
+
+.logo__circle::before {
+    width: 3em;
+    height: 3em;
+    background: #2e80ce;
+    /* Đây là nơi chứa các css riêng cho các hình tròn màu xanh thuộc logo */
+}
+
+.logo__circle::after {
+    position: absolute;
+    top: 1.1em;
+    left: 1.1em;
+    width: 1.6em;
+    height: 1.6em;
+    background: #fff;
+    /* Đây là nơi chứa các css riêng cho các hình tròn màu trắng thuộc logo */
+}
+
+.logo__text {
+    margin-left: 0.6em;
+    text-align: right;
+    line-height: 1.6em;
+}
+
+.logo__brand {
+    display: block;
+    font-size: 1.8em;
+    font-weight: 400;
+    color: #fff;
+}
+
+.logo__brand--small {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* Header top */
+.header-top {
+    display: flex;
+    /* cho nằm lên 1 hàng */
+    align-items: center;
+    /* Canh cho các nội dung được đứng giữa theo tục y */
+    justify-content: space-between;
+    /* canh các nội dung ra giữa trục x */
+}
+
+.navbar__list {
+    display: flex;
+}
+
+.header-action__login,
+.navbar__link {
+    padding: 4px 21px;
+    /* padding trên dưới 4px thì nó giúp tăng cái phạm vi bấm hơn dịch xuống 1 chút người dùng vẫn bấm được */
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #c9d2da;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+    color: #fff;
+    text-shadow: 1px 0 0 currentColor;
+}
+
+.navbar__link--active::before {
+    position: relative;
+    top: -2px;
+    left: -8px;
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.header-action {
+    display: flex;
+    align-items: center;
+}
+
+.header-action__login {
+    margin-right: 7px;
+}
+
+.header-action__signup {
+    --height: 44px;
+    min-width: 104px;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    margin-top: 76px;
+    align-items: center;
+}
+
+.hero__content {
+    flex-shrink: 0;
+    width: 44%;
+    /* Này đùng máy tính lấy  517/1170 = 0.4418 tính ra 44.18% vậy nên làm tròng 44% */
+}
+
+.hero__media {
+    flex-grow: 1;
+    /* khôi còn lại, khối hình ảnh. để nó flex-grow 1 để chiếm nốt phần còn lại */
+}
+
+.hero__heading {
+    font-weight: 600;
+    font-size: 7rem; /*70px*/
+    line-height: 1.14; /*80px or 114%*/
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.hero__desc {
+    margin-top: 22px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.67; /*167% or 30px*/
+    color: #c9d2da;
+}
+
+.hero__row{
+    /* Mặc dù 2 thẻ a và span là tẻ inline nằm trên một hàng nhưng vẫn biến thành flex để loại bỏ khoảng trắng để sau css khoảng cách cho dễ */
+    display: flex;
+    align-items: center;
+    margin-top: 38px;
+}
+
+.hero__phone {
+    margin-left: 38px;
+    /* font-weight: 400 là font mặc định, không cần ghi nữa */
+    font-size: 1.8rem; /*18px*/
+    line-height: 1.67; /*30px*/
+    color: #fff;
+}
+
+.hero__images {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hero__img {
+    width: 330px;
+    height: 540px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.hero__img:first-child {
+    position: relative; /*cho này trồ lên thằng last chid*/
+    margin-right: -6px;
+}
+
+.hero__img:last-child {
+    width: 210px;
+    height: 410px;
+}
