@@ -54,6 +54,22 @@ a {
     cursor: pointer;
 }
 
+.section-heading {
+    font-weight: 600;
+    font-size: 5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #10375c;
+}
+
+.section-desc {
+    margin-top: 18px;
+    font-weight: 300;
+    font-size: 1.8rem;
+    line-height: 1.67;
+    color: #575f66;
+}
+
 /* Header */
 .header {
     min-height: 100vh;
@@ -200,7 +216,7 @@ a {
     color: #c9d2da;
 }
 
-.hero__row{
+.hero__row {
     /* Mặc dù 2 thẻ a và span là tẻ inline nằm trên một hàng nhưng vẫn biến thành flex để loại bỏ khoảng trắng để sau css khoảng cách cho dễ */
     display: flex;
     align-items: center;
@@ -236,4 +252,280 @@ a {
 .hero__img:last-child {
     width: 210px;
     height: 410px;
+}
+
+.service {
+    padding: 170px 0;
+}
+
+.service__heading,
+.service__desc {
+    text-align: center;
+}
+
+.service-desc {
+    width: 468px;
+    margin-left: auto;
+    margin-right: auto;
+    /* tại sao không dùng margin: 0 auto; vì ở trên kia thẻ cha đang thừa kế margin top bottom nên là không viết tắt nên viết rõ ra */
+}
+
+.service__row {
+    display: flex;
+    margin-top: 70px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service__img {
+    width: 570px;
+    height: 570px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.service__list {
+    margin-bottom: 55px;
+}
+
+.service-item {
+    display: flex;
+    width: 470px;
+    padding: 22px;
+    background: #fff;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.service-item:hover {
+    position: relative;
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.05);
+}
+
+.service-item:hover .service-item__icon {
+    background-color: #2e80ce;
+    color: #fff;
+}
+
+.service-item__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    /* đảm bảo không bị méo dùng flex-shrink */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #10375c;
+    background: #eff6fd;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+    transition: 0.25s;
+}
+
+.service-item__body {
+    margin-left: 20px;
+}
+
+.service-item__heading {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.27; /*lấy 23px / 18px số 23 px là lấy được từ việc đo, sau đó 18 px ấy từ 1.8rem*/
+    color: #10375c;
+}
+
+.service-item__desc {
+    margin-top: 8px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #575f66;
+}
+
+/* Work */
+
+.work {
+    padding: 100px 0;
+    background: #f7fbff;
+}
+
+.work__desc {
+    width: 468px;
+}
+
+.work__list {
+    display: grid; /*hiển thị theo grid*/
+    grid-template-columns: repeat(
+        3,
+        1fr
+    ); /*lặp lại 3 lần, 1 grid tương ứng 1 fr*/
+    column-gap: 30px; /*Tạo khoảng cách giữa các fr*/
+    margin-top: 70px;
+}
+
+.work-item {
+    padding: 44px;
+    border: 16px solid #eaf6ff;
+    border-radius: 4px;
+    transition: 0.25s;
+}
+
+.work-item:hover {
+    transform: translateY(-16px);
+    border-color: #2e80ce;
+}
+
+.work-item__heading {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 2.6rem;
+    line-height: 1.38;
+    color: #10375c;
+}
+
+.work-item__desc {
+    margin-top: 28px;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    color: #575f66;
+}
+
+.work-item__more {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    color: #2e80ce;
+}
+
+/* Feature */
+
+.feature {
+    margin-top: 85px;
+    padding: 85px 0;
+}
+
+.feature__inner {
+    display: flex;
+    column-gap: 130px;
+    align-items: center;
+}
+
+.feature__media {
+    width: 48%;
+}
+
+.feature__images {
+    position: relative;
+    padding: 0 58px 121px 0;
+}
+
+.feature__img {
+    width: 512px;
+    height: 370px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.feature__img:last-child {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 332px;
+    height: 370px;
+    /* ở đây không set bottom cho nó vì lở sau này có phần tử nào ở dưới thì nó sẽ có vấn đề là nó nằm đè lên */
+    /* giải pháp là set padding-bottom cho thăng cha nó là .feature__images, sau này có thằng nào đứng dưới cũng bị đẩy xuống */
+}
+
+.feature__cta {
+    margin-top: 38px;
+}
+
+/* Member */
+.member {
+    padding: 85px 0;
+    text-align: center;
+}
+
+.member__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member__cta {
+    margin-top: 38px;
+}
+
+.member__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    margin-top: 70px;
+}
+
+.member-item:hover .member-item__thumb {
+    transform: scale(1.1);
+}
+
+.member-item__img-bg {
+    padding-top: 28px;
+    background: #eaf6ff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.member-item__thumb {
+    display: block;
+    max-width: 100%;
+    height: 290px;
+    object-fit: cover;
+    transition: 0.25s;
+}
+
+.member-item__name {
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    color: #10375c;
+}
+
+.member-item__title {
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 1.86;
+    color: #575f66;
+}
+
+.member__control {
+    display: flex;
+    justify-content: center;
+    column-gap: 18px;
+    margin-top: 38px;
+}
+
+.member__control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #575f66;
+    outline: none;
+    background: #fff;
+    color: #575f66;
+    transition: 0.25s;
+}
+
+.member__control-btn:hover {
+    color: #fff;
+    border-color: #2e80ce;
+    background: #2e80ce;
+    cursor: pointer;
+}
+
+.member__control-next-icon {
+    rotate: 180deg;
 }
